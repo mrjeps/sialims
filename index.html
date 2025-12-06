@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>SIALIMS - Siber Asia Learning Management System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -32,10 +33,10 @@
           </div>
         </div>
         <nav class="nav-links">
-          <a href="#top">Beranda</a>
-          <a href="#modul-section">Pembelajaran</a>
-          <a href="#ebook-section">E-Book</a>
-          <a href="#tentang-section">Tentang</a>
+          <a href="#top" class="nav-link">Beranda</a>
+          <a href="#modul-section" class="nav-link">Pembelajaran</a>
+          <a href="#ebook-section" class="nav-link">E-Book</a>
+          <a href="#tentang-section" class="nav-link">Tentang</a>
         </nav>
         <div class="nav-actions">
           <a href="login.html" class="btn-outline">
@@ -340,13 +341,25 @@
         <div class="section-header">
           <div>
             <h2>
-              <i class="fa-solid fa-circle-info"></i>
+              <!-- <i class="fa-solid fa-circle-info"></i> -->
               Tentang SIALIMS
             </h2>
-            <p>
+            <p class="about-text">
               SIALIMS (Siber Asia Learning Management System) adalah platform
-              pembelajaran daring yang fokus pada pemrograman web dan teknologi
-              digital.
+              e-learning dan perpustakaan digital yang dirancang untuk membantu
+              pelajar, guru, dan profesional belajar secara fleksibel di era
+              digital. Melalui SIALIMS, pengguna dapat mengakses modul
+              pembelajaran interaktif, koleksi e-book yang terus diperbarui,
+              serta fitur pemantauan progres belajar yang rapi dan terstruktur.
+            </p>
+            <p class="about-text">
+              Sistem ini dibangun dengan fokus pada kemudahan penggunaan,
+              tampilan yang modern, dan integrasi teknologi web terbaru sehingga
+              pengalaman belajar terasa lebih personal, menyenangkan, dan dapat
+              diakses kapan saja dan di mana saja. SIALIMS sudah terintegrasi
+              untuk e-book dengan database library kongres amerika untuk
+              memudahkan penggunakan mencari literasi buku yang belum ada pada
+              data e-book SIALIMS.
             </p>
           </div>
         </div>
@@ -365,39 +378,47 @@
     </footer>
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-
+      // ambil semua section yang punya id
       const sections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll(".nav-links a");
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      const header = document.querySelector("header"); // kalau header kamu pakai <header>
 
-      function setActiveLink() {
+      function onScroll() {
+        const headerHeight = header ? header.offsetHeight : 0;
+        // posisi scroll + tinggi header sedikit buffer
+        const scrollPos = window.scrollY + headerHeight + 10;
+
         let currentId = "";
 
         sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          const offsetTop = rect.top + window.scrollY;
+          const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
 
-          // offset 120px buat ngitung kira-kira tengah layar
           if (
-            window.scrollY + 140 >= offsetTop &&
-            window.scrollY + 140 < offsetTop + sectionHeight
+            scrollPos >= sectionTop &&
+            scrollPos < sectionTop + sectionHeight
           ) {
-            currentId = "#" + section.id;
+            currentId = section.id;
           }
         });
 
         navLinks.forEach((link) => {
-          if (link.getAttribute("href") === currentId) {
-            link.classList.add("active");
-          } else {
-            link.classList.remove("active");
-          }
+          const href = link.getAttribute("href"); // misal "#tentang"
+          link.classList.toggle("active", href === `#${currentId}`);
         });
       }
 
-      window.addEventListener("scroll", setActiveLink);
-      window.addEventListener("load", setActiveLink);
+      // supaya pas klik menu langsung aktif juga
+      navLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          navLinks.forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      window.addEventListener("scroll", onScroll);
+      // pas reload langsung cek
+      onScroll();
     </script>
   </body>
 </html>
