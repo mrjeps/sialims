@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SIALIMS - Siber Asia Learning Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body id="top">
+    <!-- HEADER -->
+    <header>
+      <div class="nav-container">
+        <div class="brand">
+          <div class="brand-icon">
+            <!-- <i class="fa-solid fa-bolt"></i> -->
+            <img src="assets/images/logo-sialims.png" width="65" />
+          </div>
+          <div class="brand-text">
+            <h1>SIALIMS</h1>
+            <p>
+              <strong
+                ><em>Smart Digital Learning &amp; E-Book Library</em></strong
+              >
+            </p>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#top">Beranda</a>
+          <a href="#modul-section">Pembelajaran</a>
+          <a href="#ebook-section">E-Book</a>
+          <a href="#tentang-section">Tentang</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="login.html" class="btn-outline">
+            <i class="fa-regular fa-user"></i> Login
+          </a>
+          <a href="register.html" class="btn-gradient">
+            <i class="fa-solid fa-user-plus"></i> Daftar
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div>
+          <h2 class="hero-title">Siber Asia Learning Management System</h2>
+          <p class="hero-subtitle">
+            Platform e-learning dan perpustakaan digital untuk belajar
+            pemrograman web, data, dan teknologi masa depan secara praktis.
+          </p>
+          <div class="hero-tags">
+            <span>#PemrogramanWeb</span>
+            <span>#EBookDigital</span>
+            <span>#BelajarKapanSaja</span>
+            <span>#SIALIMS</span>
+          </div>
+          <div class="hero-cta">
+            <a href="#modul-section" class="btn-primary">
+              <i class="fa-solid fa-play"></i> Mulai Belajar
+            </a>
+            <a href="#ebook-section" class="btn-ghost">
+              <i class="fa-solid fa-book-open"></i> Lihat Koleksi E-Book
+            </a>
+          </div>
+          <p class="hero-stats">
+            🎓 120+ modul interaktif • 📚 80+ e-book • 👨‍🎓 Komunitas belajar Asia
+            digital
+          </p>
+        </div>
+        <div class="hero-visual">
+          <h3>Highlight Pembelajaran Hari Ini</h3>
+          <ul>
+            <li>
+              <i class="fa-solid fa-code"></i>
+              <span>Workshop: Pemrograman Web Dasar dengan HTML &amp; CSS</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-database"></i>
+              <span>Mini Course: Dasar SQL untuk Aplikasi Web</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-book"></i>
+              <span>E-Book Populer: Data Mining untuk Pemula</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- MODUL PEMBELAJARAN -->
+      <section id="modul-section">
+        <div class="section-header">
+          <div>
+            <h2>
+              <i class="fa-solid fa-graduation-cap"></i>
+              Modul Pembelajaran
+            </h2>
+            <p>Belajar pemrograman web dari dasar sampai siap produksi.</p>
+          </div>
+          <span class="badge">6 Modul • Klik untuk detail</span>
+        </div>
+        <div class="grid">
+          <!-- 6 modul -->
+          <a class="card" href="pembelajaran.html?course=web-dasar">
+            <div class="card-icon" style="background: #2563eb">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="card-title">Pemrograman Web Dasar (HTML &amp; CSS)</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-clock"></i> 12 jam</span>
+              <span><i class="fa-regular fa-user"></i> Pemula</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-play"></i> 10 video
+              </span>
+              <span>2.4K views</span>
+            </div>
+          </a>
+
+          <a class="card" href="pembelajaran.html?course=responsive">
+            <div class="card-icon" style="background: #059669">
+              <i class="fa-solid fa-mobile-screen-button"></i>
+            </div>
+            <div class="card-title">Responsive Web Design</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-clock"></i> 8 jam</span>
+              <span><i class="fa-regular fa-user"></i> Pemula - Menengah</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-layer-group"></i> 7 modul
+              </span>
+              <span>1.8K views</span>
+            </div>
+          </a>
+
+          <a class="card" href="pembelajaran.html?course=js-pemula">
+            <div class="card-icon" style="background: #f59e0b">
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <div class="card-title">JavaScript untuk Pemula</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-clock"></i> 10 jam</span>
+              <span><i class="fa-regular fa-user"></i> Menengah</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-code-branch"></i> 12 latihan
+              </span>
+              <span>3.1K views</span>
+            </div>
+          </a>
+
+          <!-- 3 modul tambahan -->
+          <a class="card" href="pembelajaran.html?course=frontend-framework">
+            <div class="card-icon" style="background: #6366f1">
+              <i class="fa-solid fa-shapes"></i>
+            </div>
+            <div class="card-title">Framework Frontend Modern</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-clock"></i> 9 jam</span>
+              <span><i class="fa-regular fa-user"></i> Menengah</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-sparkles"></i> Project based
+              </span>
+              <span>1.2K views</span>
+            </div>
+          </a>
+
+          <a class="card" href="pembelajaran.html?course=git-github">
+            <div class="card-icon" style="background: #111827">
+              <i class="fa-brands fa-git-alt"></i>
+            </div>
+            <div class="card-title">
+              Version Control dengan Git &amp; GitHub
+            </div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-clock"></i> 6 jam</span>
+              <span><i class="fa-regular fa-user"></i> Semua level</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-code-commit"></i> 20 commit
+              </span>
+              <span>980 views</span>
+            </div>
+          </a>
+
+          <a class="card" href="pembelajaran.html?course=sql-dasar">
+            <div class="card-icon" style="background: #14b8a6">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <div class="card-title">Database Dasar dengan SQL</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-clock"></i> 7 jam</span>
+              <span><i class="fa-regular fa-user"></i> Pemula</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-table"></i> 15 latihan query
+              </span>
+              <span>1.5K views</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- KOLEKSI E-BOOK -->
+      <section id="ebook-section">
+        <div class="section-header">
+          <div>
+            <h2>
+              <i class="fa-solid fa-book-open"></i>
+              Koleksi E-Book Digital
+            </h2>
+            <p>Download dan baca e-book seputar web, data, dan teknologi.</p>
+          </div>
+          <span class="badge">6 E-Book • Klik untuk detail</span>
+        </div>
+        <div class="grid">
+          <!-- 6 e-book -->
+          <a class="card" href="ebook.html?book=ebook-htmlcss">
+            <div class="card-icon" style="background: #2563eb">
+              <i class="fa-solid fa-file-code"></i>
+            </div>
+            <div class="card-title">Panduan Lengkap HTML &amp; CSS</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-file-lines"></i> 210 halaman</span>
+              <span><i class="fa-regular fa-user"></i> SIALIMS Studio</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-download"></i> 1.2K unduhan
+              </span>
+              <span>2.8K views</span>
+            </div>
+          </a>
+
+          <a class="card" href="ebook.html?book=ebook-js-project">
+            <div class="card-icon" style="background: #f59e0b">
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <div class="card-title">JavaScript Project untuk Pemula</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-file-lines"></i> 160 halaman</span>
+              <span><i class="fa-regular fa-user"></i> Dev Asia Lab</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-download"></i> 980 unduhan
+              </span>
+              <span>2.1K views</span>
+            </div>
+          </a>
+
+          <a class="card" href="ebook.html?book=ebook-uiux">
+            <div class="card-icon" style="background: #ec4899">
+              <i class="fa-solid fa-pen-ruler"></i>
+            </div>
+            <div class="card-title">Desain UI/UX untuk Website Modern</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-file-lines"></i> 145 halaman</span>
+              <span><i class="fa-regular fa-user"></i> Pixel Craft</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-download"></i> 730 unduhan
+              </span>
+              <span>1.6K views</span>
+            </div>
+          </a>
+
+          <!-- 3 e-book tambahan -->
+          <a class="card" href="ebook.html?book=ebook-algoritma">
+            <div class="card-icon" style="background: #4b5563">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <div class="card-title">Algoritma &amp; Pemrograman Praktis</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-file-lines"></i> 190 halaman</span>
+              <span><i class="fa-regular fa-user"></i> Code Campus</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-download"></i> 640 unduhan
+              </span>
+              <span>1.3K views</span>
+            </div>
+          </a>
+
+          <a class="card" href="ebook.html?book=ebook-data-mining">
+            <div class="card-icon" style="background: #0f766e">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="card-title">Data Mining untuk Pemula</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-file-lines"></i> 175 halaman</span>
+              <span><i class="fa-regular fa-user"></i> Data Asia Insight</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-download"></i> 520 unduhan
+              </span>
+              <span>1.1K views</span>
+            </div>
+          </a>
+
+          <a class="card" href="ebook.html?book=ebook-iot">
+            <div class="card-icon" style="background: #22c55e">
+              <i class="fa-solid fa-plug-circle-bolt"></i>
+            </div>
+            <div class="card-title">Internet of Things Dasar untuk Web</div>
+            <div class="card-meta">
+              <span><i class="fa-regular fa-file-lines"></i> 130 halaman</span>
+              <span><i class="fa-regular fa-user"></i> IoT Nusantara</span>
+            </div>
+            <div class="card-footer">
+              <span class="pill">
+                <i class="fa-solid fa-download"></i> 410 unduhan
+              </span>
+              <span>980 views</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- TENTANG -->
+      <section id="tentang-section">
+        <div class="section-header">
+          <div>
+            <h2>
+              <i class="fa-solid fa-circle-info"></i>
+              Tentang SIALIMS
+            </h2>
+            <p>
+              SIALIMS (Siber Asia Learning Management System) adalah platform
+              pembelajaran daring yang fokus pada pemrograman web dan teknologi
+              digital.
+            </p>
+          </div>
+        </div>
+        <p style="font-size: 13px; color: #374151; line-height: 1.6">
+          Kami menghubungkan pelajar, dosen, dan praktisi industri dalam satu
+          ekosistem pembelajaran yang modern. Semua modul dan e-book dirancang
+          agar mudah dipahami, dengan kombinasi video, latihan interaktif, serta
+          materi bacaan yang terstruktur.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      &copy; <span id="year"></span> SIALIMS • Siber Asia Learning Management
+      System
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-links a");
+
+      function setActiveLink() {
+        let currentId = "";
+
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          const offsetTop = rect.top + window.scrollY;
+          const sectionHeight = section.offsetHeight;
+
+          // offset 120px buat ngitung kira-kira tengah layar
+          if (
+            window.scrollY + 140 >= offsetTop &&
+            window.scrollY + 140 < offsetTop + sectionHeight
+          ) {
+            currentId = "#" + section.id;
+          }
+        });
+
+        navLinks.forEach((link) => {
+          if (link.getAttribute("href") === currentId) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", setActiveLink);
+      window.addEventListener("load", setActiveLink);
+    </script>
+  </body>
+</html>
