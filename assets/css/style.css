@@ -105,7 +105,7 @@ header {
   padding: 10px 18px;
   border-radius: 999px;
   text-decoration: none;
-  color: #1f2933;
+  color: #f9f9f9;
   font-weight: 500;
   transition: all 0.25s ease;
 }
@@ -117,9 +117,16 @@ header {
 
 /* LINK AKTIF */
 .nav-links a.active {
-  background: linear-gradient(135deg, #2563eb, #10b981); /* biru → hijau */
+  background: linear-gradient(135deg, #009eff, #10b981); /* biru → hijau */
   color: #ffffff;
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, #2563eb, #22c55e);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 8px 18px;
 }
 
 .btn-outline {
@@ -390,7 +397,13 @@ section {
 }
 
 #tentang-section {
-  background: var(--abu);
+  background: var(--biru-muda);
+}
+
+.about-text {
+  line-height: 1.8; /* Jarak antar baris */
+  margin-bottom: 1rem; /* Jarak bawah paragraf */
+  text-align: justify; /* (opsional) biar rata kiri–kanan */
 }
 
 footer {
