@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detail Pembelajaran | SIALIMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --biru: #1f6feb;
+        --hijau: #00b894;
+        --putih: #ffffff;
+        --abu: #f3f4f6;
+        --teks: #111827;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", system-ui, sans-serif;
+      }
+      body {
+        background: #f5f7fb;
+        color: var(--teks);
+      }
+
+      header {
+        background: var(--biru);
+        color: var(--putih);
+        padding: 14px 40px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+      }
+      .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #2d6bff, #16a085);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.4);
+      }
+      .brand-icon i {
+        color: #fff;
+        font-size: 18px;
+      }
+      .brand-text h1 {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .brand-text p {
+        font-size: 11px;
+        opacity: 0.9;
+      }
+      .nav-actions {
+        display: flex;
+        gap: 10px;
+        font-size: 13px;
+      }
+      .nav-actions a {
+        color: #e5ecff;
+        text-decoration: none;
+      }
+
+      main {
+        max-width: 1000px;
+        margin: 28px auto 60px;
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .crumb {
+        font-size: 12px;
+      }
+      .crumb a {
+        text-decoration: none;
+        color: #2563eb;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+        gap: 18px;
+        margin-top: 6px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 18px;
+        padding: 18px 18px 22px;
+        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+      }
+
+      .video-wrapper {
+        position: relative;
+        padding-top: 56.25%;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #020617;
+        margin-bottom: 12px;
+      }
+      .video-wrapper iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .course-title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .course-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 12px;
+        color: #4b5563;
+        margin-bottom: 10px;
+      }
+      .course-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .course-meta i {
+        color: #2563eb;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+      .star {
+        color: #facc15;
+      }
+
+      .course-desc {
+        font-size: 13px;
+        color: #374151;
+        line-height: 1.6;
+      }
+
+      .side-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .stat-list {
+        list-style: none;
+        font-size: 13px;
+        color: #4b5563;
+      }
+      .stat-list li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 0;
+      }
+      .stat-list i {
+        color: #2563eb;
+      }
+
+      .comment-title {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .comment-list {
+        list-style: none;
+        font-size: 12px;
+        color: #374151;
+        margin-top: 6px;
+      }
+      .comment-list li {
+        padding: 6px 0;
+        border-bottom: 1px dashed #e5e7eb;
+      }
+      .comment-form {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 70px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid #d1d5db;
+        font-size: 12px;
+      }
+      .btn-primary {
+        border: none;
+        border-radius: 999px;
+        background: var(--biru);
+        color: #fff;
+        padding: 8px 16px;
+        font-size: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+      @media (max-width: 768px) {
+        header {
+          padding: 12px 16px;
+        }
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <div class="brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div class="brand-text">
+            <h1>SIALIMS</h1>
+            <p>Smart Digital Learning &amp; E-Book Library</p>
+          </div>
+        </div>
+        <div class="nav-actions">
+          <a href="index.html">Beranda</a>
+          <a href="index.html#modul-section">Pembelajaran</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="crumb">
+        <a href="index.html">Beranda</a> /
+        <a href="index.html#modul-section">Pembelajaran</a> /
+        <span id="crumb-title">Detail Modul</span>
+      </div>
+
+      <div class="layout">
+        <!-- KIRI: video + deskripsi -->
+        <div class="card">
+          <div class="video-wrapper">
+            <!-- video di-set dari JS -->
+            <iframe
+              id="course-video"
+              src=""
+              allowfullscreen
+              title="Video Pembelajaran"
+            ></iframe>
+          </div>
+
+          <h2 class="course-title" id="course-title">Judul Modul</h2>
+          <div class="course-meta">
+            <span
+              ><i class="fa-regular fa-user"></i> Pengajar:
+              <span id="course-teacher"></span
+            ></span>
+            <span
+              ><i class="fa-regular fa-clock"></i> Durasi:
+              <span id="course-duration"></span
+            ></span>
+            <span
+              ><i class="fa-solid fa-eye"></i>
+              <span id="course-views"></span> views</span
+            >
+          </div>
+
+          <div class="rating">
+            <span id="rating-stars"></span>
+            <span id="rating-text"></span>
+          </div>
+
+          <p class="course-desc" id="course-desc"></p>
+        </div>
+
+        <!-- KANAN: info singkat + komentar -->
+        <div class="card">
+          <h3 class="side-title">Info Modul</h3>
+          <ul class="stat-list">
+            <li>
+              <i class="fa-solid fa-layer-group"></i> Level:
+              <span id="course-level"></span>
+            </li>
+            <li>
+              <i class="fa-solid fa-list-check"></i> Topik:
+              <span id="course-topics"></span>
+            </li>
+            <li>
+              <i class="fa-regular fa-calendar"></i> Rilis:
+              <span id="course-date"></span>
+            </li>
+          </ul>
+
+          <div style="margin-top: 18px">
+            <h3 class="comment-title">Komentar Peserta</h3>
+            <ul class="comment-list" id="comment-list">
+              <li>
+                <strong>Ayu:</strong> Penjelasan pengajarnya enak banget, mudah
+                diikuti!
+              </li>
+              <li>
+                <strong>Rizky:</strong> Contoh kodingnya praktis, langsung bisa
+                dipakai di proyek.
+              </li>
+            </ul>
+
+            <form class="comment-form" onsubmit="addComment(event)">
+              <label for="comment" style="font-size: 12px"
+                >Tulis komentar kamu:</label
+              >
+              <textarea
+                id="comment"
+                placeholder="Bagikan pengalaman belajar kamu di modul ini..."
+              ></textarea>
+              <button type="submit" class="btn-primary">
+                <i class="fa-solid fa-paper-plane"></i> Kirim Komentar (demo)
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const courses = {
+        "web-dasar": {
+          title: "Pemrograman Web Dasar (HTML & CSS)",
+          teacher: "Nurul Hidayah, S.Kom.",
+          duration: "12 jam",
+          level: "Pemula",
+          topics: "HTML, CSS, layout, responsive design",
+          date: "10 Februari 2025",
+          views: "2.400",
+          rating: 4.8,
+          video: "https://www.youtube.com/embed/pQN-pnXPaVg",
+          desc: "Modul ini mengajarkan dasar-dasar pembuatan website menggunakan HTML dan CSS. Kamu akan belajar membuat struktur halaman, mengatur teks, gambar, hingga membangun layout responsif yang siap online.",
+        },
+        responsive: {
+          title: "Responsive Web Design",
+          teacher: "Randy Pratama",
+          duration: "8 jam",
+          level: "Pemula - Menengah",
+          topics: "media query, flexbox, grid, mobile-first",
+          date: "15 Februari 2025",
+          views: "1.800",
+          rating: 4.7,
+          video: "https://www.youtube.com/embed/srvUrASNj0s",
+          desc: "Pelajari teknik membuat tampilan website yang nyaman di semua ukuran layar. Dari smartphone kecil sampai monitor lebar, modul ini membahas konsep responsive layout dengan contoh langsung.",
+        },
+        "js-pemula": {
+          title: "JavaScript untuk Pemula",
+          teacher: "Budi Santoso",
+          duration: "10 jam",
+          level: "Menengah",
+          topics: "variabel, function, DOM, event",
+          date: "20 Februari 2025",
+          views: "3.100",
+          rating: 4.9,
+          video: "https://www.youtube.com/embed/W6NZfCO5SIk",
+          desc: "Masuk ke dunia JavaScript dan pelajari bagaimana membuat halaman web menjadi interaktif. Modul ini membahas dasar-dasar bahasa JavaScript dengan contoh yang mudah diikuti.",
+        },
+        "frontend-framework": {
+          title: "Framework Frontend Modern",
+          teacher: "Intan Puspa, M.Kom.",
+          duration: "9 jam",
+          level: "Menengah",
+          topics: "komponen, state, SPA (konsep umum)",
+          date: "5 Maret 2025",
+          views: "1.200",
+          rating: 4.6,
+          video: "https://www.youtube.com/embed/SqcY0GlETPk",
+          desc: "Kenali konsep dasar framework frontend modern seperti komponen, state management, dan single-page application. Modul ini membantu kamu memahami konsep inti sebelum memilih framework favoritmu.",
+        },
+        "git-github": {
+          title: "Version Control dengan Git & GitHub",
+          teacher: "Arief Nugraha",
+          duration: "6 jam",
+          level: "Semua level",
+          topics: "git init, commit, branch, pull request",
+          date: "28 Februari 2025",
+          views: "980",
+          rating: 4.8,
+          video: "https://www.youtube.com/embed/8JJ101D3knE",
+          desc: "Belajar mengelola kode dengan rapi menggunakan Git dan GitHub. Modul ini membahas alur kerja dasar mulai dari inisialisasi repository sampai kolaborasi tim menggunakan pull request.",
+        },
+        "sql-dasar": {
+          title: "Database Dasar dengan SQL",
+          teacher: "Dewi Kartika",
+          duration: "7 jam",
+          level: "Pemula",
+          topics: "SELECT, JOIN, filter, agregasi",
+          date: "3 Maret 2025",
+          views: "1.500",
+          rating: 4.7,
+          video: "https://www.youtube.com/embed/HXV3zeQKqGY",
+          desc: "Modul ini mengenalkan konsep database relasional dan bahasa SQL. Kamu akan belajar menulis query untuk mengambil, memfilter, dan menggabungkan data dari beberapa tabel.",
+        },
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const courseId = params.get("course") || "web-dasar";
+      const data = courses[courseId] || courses["web-dasar"];
+
+      document.getElementById("course-title").textContent = data.title;
+      document.getElementById("crumb-title").textContent = data.title;
+      document.getElementById("course-teacher").textContent = data.teacher;
+      document.getElementById("course-duration").textContent = data.duration;
+      document.getElementById("course-level").textContent = data.level;
+      document.getElementById("course-topics").textContent = data.topics;
+      document.getElementById("course-date").textContent = data.date;
+      document.getElementById("course-views").textContent = data.views;
+      document.getElementById("course-desc").textContent = data.desc;
+      document.getElementById("course-video").src = data.video;
+
+      const ratingStars = document.getElementById("rating-stars");
+      const ratingText = document.getElementById("rating-text");
+      const fullStars = Math.round(data.rating);
+      ratingStars.innerHTML = "★".repeat(fullStars) + "☆".repeat(5 - fullStars);
+      ratingStars.className = "star";
+      ratingText.textContent = data.rating.toFixed(1) + " / 5.0";
+
+      function addComment(e) {
+        e.preventDefault();
+        const input = document.getElementById("comment");
+        const text = input.value.trim();
+        if (!text) return;
+        const list = document.getElementById("comment-list");
+        const li = document.createElement("li");
+        li.innerHTML = "<strong>Kamu:</strong> " + text;
+        list.appendChild(li);
+        input.value = "";
+      }
+      window.addComment = addComment;
+    </script>
+  </body>
+</html>

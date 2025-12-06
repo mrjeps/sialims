@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Berkah E-Learning</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Cloudflare Turnstile (Captcha) -->
+    <!-- Ganti data-sitekey dengan site key milikmu -->
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+      async
+      defer
+    ></script>
+
+    <style>
+      :root {
+        --primary: #4f46e5;
+        --primary-soft: #eef2ff;
+        --accent: #22c55e;
+        --bg: #f9fafb;
+        --card-bg: #ffffff;
+        --text: #0f172a;
+        --muted: #6b7280;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: radial-gradient(circle at top, #eef2ff, #f9fafb);
+        padding: 20px;
+        color: var(--text);
+      }
+
+      .wrapper {
+        width: 100%;
+        max-width: 960px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 24px;
+        background: linear-gradient(135deg, #f9fafb, #eef2ff);
+        border-radius: 28px;
+        padding: 22px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.13);
+        border: 1px solid rgba(148, 163, 184, 0.3);
+      }
+
+      .hero {
+        padding: 10px 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+
+      .tag i {
+        font-size: 12px;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .hero-list {
+        list-style: none;
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .hero-list li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 4px;
+      }
+
+      .hero-list li i {
+        color: var(--accent);
+      }
+
+      .form-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 20px 18px 18px;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+      }
+
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .form-header h2 {
+        font-size: 18px;
+      }
+
+      .form-header span {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        font-size: 12px;
+        margin-bottom: 2px;
+        display: block;
+      }
+
+      .field {
+        margin-bottom: 6px;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 9px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.7);
+        background: #f9fafb;
+        font-size: 13px;
+        outline: none;
+        transition: 0.18s ease;
+      }
+
+      input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.25);
+        background: #ffffff;
+      }
+
+      .input-with-icon {
+        position: relative;
+      }
+
+      .input-with-icon i {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .input-with-icon input {
+        padding-left: 30px;
+      }
+
+      .extra-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: var(--muted);
+        margin: 2px 0 4px;
+      }
+
+      .extra-row a {
+        color: var(--primary);
+      }
+
+      .turnstile-wrapper {
+        margin: 8px 0 4px;
+      }
+
+      button {
+        border-radius: 999px;
+        padding: 9px 16px;
+        border: none;
+        background: linear-gradient(135deg, #4f46e5, #22c55e);
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 4px;
+        box-shadow: 0 12px 30px rgba(79, 70, 229, 0.4);
+        transition: 0.15s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 38px rgba(79, 70, 229, 0.48);
+      }
+
+      .bottom-text {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 8px;
+        color: var(--muted);
+      }
+
+      .bottom-text a {
+        color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        .wrapper {
+          grid-template-columns: 1fr;
+          border-radius: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="hero">
+        <span class="tag"
+          ><i class="fa-solid fa-shield-halved"></i> Login Aman</span
+        >
+        <h1>Masuk ke Berkah E-Learning</h1>
+        <p>
+          Akses kelas, e-book, serta laporan progress project yang terhubung
+          dengan AI Asisten PMO. Satu akun untuk semua aktivitas belajar.
+        </p>
+        <ul class="hero-list">
+          <li>
+            <i class="fa-solid fa-circle-check"></i> Data terenkripsi &
+            dilindungi CAPTCHA.
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-check"></i> Sinkron dengan modul
+            e-learning & perpustakaan digital.
+          </li>
+          <li>
+            <i class="fa-solid fa-circle-check"></i> Log aktivitas dicatat untuk
+            keperluan monitoring PMO.
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <div class="form-header">
+          <h2><i class="fa-regular fa-user"></i> Login Pengguna</h2>
+          <span>Belum punya akun? <a href="register.html">Daftar</a></span>
+        </div>
+
+        <form action="#" method="post">
+          <div class="field">
+            <label for="email">Email</label>
+            <div class="input-with-icon">
+              <i class="fa-regular fa-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="nama@contoh.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-with-icon">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Masukkan password"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="extra-row">
+            <label>
+              <input type="checkbox" name="remember" /> Ingat saya
+            </label>
+            <a href="#">Lupa password?</a>
+          </div>
+
+          <!-- Cloudflare Turnstile CAPTCHA -->
+          <div class="turnstile-wrapper">
+            <div
+              class="cf-turnstile"
+              data-sitekey="ISI_SITE_KEY_KAMU_DI_SINI"
+              data-theme="light"
+            ></div>
+          </div>
+
+          <button type="submit">
+            <i class="fa-solid fa-sign-in-alt"></i> Masuk
+          </button>
+
+          <div class="bottom-text">
+            <a href="index.html">&larr; Kembali ke beranda</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
