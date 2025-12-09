@@ -17,7 +17,7 @@
 }
 
 body {
-  background: #f5f7fb;
+  background: #ffffff; /*f5f7fb*/
   color: var(--teks);
 }
 
@@ -393,11 +393,11 @@ section {
 }
 
 #ebook-section {
-  background: #ffffff;
+  background: var(--hijau-muda);
 }
 
 #tentang-section {
-  background: var(--biru-muda);
+  background: #fff5db;
 }
 
 .about-text {
@@ -561,6 +561,13 @@ footer {
   background: linear-gradient(135deg, #1d6ff2, #00b894);
   color: #fff;
   box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
+}
+
+.text-center {
+  text-align: center;
+}
+.text-bold {
+  font-weight: bold;
 }
 
 /* Responsif */
